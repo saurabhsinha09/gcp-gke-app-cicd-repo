@@ -50,6 +50,7 @@ steps:
   - |
     set -x && \
     cd gcp-gke-k8s-cicd-repo && \
+    gcloud secrets versions access latest --secret="github-key" >> id_keys && \
     git add kubernetes.yaml && \
     git commit -m "Deploying image us-central1-docker.pkg.dev/$PROJECT_ID/gke-cicd-myapps-repo/gcp_cicd:${SHORT_SHA}
     Built from commit ${COMMIT_SHA} of repository gcp-gke-k8s-cicd-repo
