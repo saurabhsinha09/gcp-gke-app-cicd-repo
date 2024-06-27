@@ -52,11 +52,9 @@ steps:
     cd gcp-gke-k8s-cicd-repo && \
     gcloud secrets versions access latest --secret="github-key" >> id_rsa && \
     ls  && \
-    ls ~/.ssh && \
-    cp id_rsa ~/.ssh/ && \
-    ls ~/.ssh && \
     git config --list && \
     git config user.email "sinha.saurabh06@gmail.com" && \
+    git config --global core.sshCommand "ssh -i ./id_rsa" && \
     git remote rm origin && \
     git remote add origin 'git@github.com:saurabhsinha09/gcp-gke-k8s-cicd-repo.git' && \
     git add kubernetes.yaml && \
