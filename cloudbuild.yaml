@@ -50,8 +50,11 @@ steps:
   - |
     set -x && \
     cd gcp-gke-k8s-cicd-repo && \
-    gcloud secrets versions access latest --secret="github-key" >> id_keys && \
+    gcloud secrets versions access latest --secret="github-key" >> id_rsa && \
     ls  && \
+    ls ~/.ssh && \
+    cp id_rsa ~/.ssh/ && \
+    ls ~/.ssh && \
     git config --list && \
     git config user.email "sinha.saurabh06@gmail.com" && \
     git remote rm origin && \
