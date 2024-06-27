@@ -22,7 +22,7 @@ steps:
 
 # [START cloudbuild-trigger-cd]
 # This step clones the myapp1-k8s-repo repository
-- name: 'gcr.io/cloud-builders/git'
+- name: 'gcr.io/cloud-builders/gcloud'
   id: Clone gcp-gke-k8s-cicd-repo repository
   entrypoint: /bin/sh
   args:
