@@ -59,6 +59,6 @@ steps:
     git remote rm origin && \
     git remote add origin 'git@github.com:saurabhsinha09/gcp-gke-k8s-cicd-repo.git' && \
     git config --list && \
-    gcloud builds connections create github saurabhsinha09-gcp-gke-k8s-cicd-repo --authorizer-token-secret-version=projects/474778286833/secrets/gcp-github-token/versions/1 --region=us-central1 && \
+    gcloud builds connections create github saurabhsinha09-gcp-gke-k8s-cicd-repo --authorizer-token-secret-version=projects/474778286833/secrets/gcp-github/versions/1 --region=us-central1 && \
     git push origin candidate
 # [END cloudbuild-trigger-cd]
