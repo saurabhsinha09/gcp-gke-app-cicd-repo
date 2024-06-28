@@ -50,18 +50,10 @@ steps:
   - |
     set -x && \
     cd gcp-gke-k8s-cicd-repo && \
-    gcloud secrets versions access latest --secret="github-key" >> id_rsa && \
-    ls  && \
-    my_dir=$(pwd) && \
     git config --list && \
-    git config user.email "sinha.saurabh06@gmail.com" && \
-    git config --global core.sshCommand "ssh -i ${my_dir}/id_rsa" && \
-    git remote rm origin && \
-    git remote add origin 'git@github.com:saurabhsinha09/gcp-gke-k8s-cicd-repo.git' && \
     git add kubernetes.yaml && \
     git commit -m "Deploying image us-central1-docker.pkg.dev/$PROJECT_ID/gke-cicd-myapps-repo/gcp_cicd:${SHORT_SHA}
     Built from commit ${COMMIT_SHA} of repository gcp-gke-k8s-cicd-repo
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
-    git config --list && \
     git push origin candidate
 # [END cloudbuild-trigger-cd]
