@@ -55,6 +55,7 @@ steps:
     git commit -m "Deploying image us-central1-docker.pkg.dev/$PROJECT_ID/gke-cicd-myapps-repo/gcp_cicd:${SHORT_SHA}
     Built from commit ${COMMIT_SHA} of repository gcp-gke-k8s-cicd-repo
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
+    git config user.email "sinha.saurabh06@gmail.com" && \
     gcloud builds connections create github saurabhsinha09-gcp-gke-k8s-cicd-repo --authorizer-token-secret-version=projects/474778286833/secrets/gcp-github-token/versions/1  --app-installation-id=52265150 --region=us-central1 && \
     git push origin candidate
 # [END cloudbuild-trigger-cd]
